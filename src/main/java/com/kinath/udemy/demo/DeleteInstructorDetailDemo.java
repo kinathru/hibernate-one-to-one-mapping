@@ -17,12 +17,13 @@ public class DeleteInstructorDetailDemo
         {
             session.beginTransaction();
 
-            int theId = 2;
+            int theId = 3;
             InstructorDetail instructorDetail = session.get( InstructorDetail.class, theId );
             System.out.println( instructorDetail.toString() );
             System.out.println( instructorDetail.getInstructor().toString() );
 
             System.out.println("Deleting Instructor Detail : ");
+            instructorDetail.getInstructor().setInstructorDetail( null );
             session.delete( instructorDetail );
 
             session.getTransaction().commit();
